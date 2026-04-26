@@ -5,47 +5,80 @@
 <title>GAMING MINHAJ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
+
+/* 🔥 GLOBAL FIX (no white flash) */
+html, body {
   margin: 0;
+  padding: 0;
+  background: #020617;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #020617, #0f172a);
   color: #e2e8f0;
   text-align: center;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
 }
 
-/* PARTICLES */
-#particles {
+/* ================= LOADER ================= */
+#loader{
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  inset: 0;
+  background: #020617;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-/* HEADER */
+.loader-box{
+  width: 80%;
+  max-width: 300px;
+}
+
+.loader-text{
+  font-family: 'Orbitron', sans-serif;
+  color: #00f5ff;
+  font-size: 14px;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.bar{
+  width: 100%;
+  height: 10px;
+  background: #111827;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.progress{
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00f5ff, #0ea5e9);
+  animation: load 2s ease forwards;
+}
+
+@keyframes load{
+  from {width: 0%;}
+  to {width: 100%;}
+}
+
+/* ================= HEADER ================= */
 header {
   padding: 20px;
   font-family: 'Orbitron', sans-serif;
   font-size: 28px;
   color: #00f5ff;
-  text-shadow: 0 0 10px #00f5ff;
+  text-shadow: 0 0 15px #00f5ff;
   border-bottom: 2px solid #00f5ff;
 }
 
-/* LOGO */
 .logo {
-  font-size: 50px;
-  margin: 10px 0;
-  text-shadow: 0 0 20px #00f5ff;
+  font-size: 55px;
+  margin: 15px 0;
 }
 
-/* CARD */
+/* ================= CARD ================= */
 .card {
   background: rgba(0, 245, 255, 0.05);
   border: 1px solid rgba(0, 245, 255, 0.2);
@@ -53,11 +86,14 @@ header {
   padding: 25px;
   max-width: 500px;
   border-radius: 15px;
-
-  transform: translateZ(0);
 }
 
-/* BUTTON */
+.card h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+}
+
+/* ================= BUTTON ================= */
 button {
   width: 100%;
   padding: 12px;
@@ -66,88 +102,111 @@ button {
   border: none;
   color: black;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 15px;
   cursor: pointer;
-  transition: all 0.25s ease;
+
+  /* 🔥 TOUCH + SMOOTH EFFECT */
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
+/* hover effect */
 button:hover {
-  transform: scale(1.04);
-  box-shadow: 0 0 12px #00f5ff;
+  transform: scale(1.03);
+  box-shadow: 0 0 15px #00f5ff;
 }
 
-/* SMOOTH FADE */
-.fade {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: all 0.6s ease;
-  will-change: transform, opacity;
+/* touch/click effect */
+button:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 20px #00f5ff;
 }
 
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* POPUP */
+/* ================= POPUP ================= */
 .popup {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup.show {
+  display: flex;
 }
 
 .popup-box {
   background: #111827;
   width: 90%;
   max-width: 350px;
-  margin: 120px auto;
-  padding: 20px;
+  padding: 25px;
   border-radius: 12px;
-  text-align: left;
+  text-align: center;
   color: white;
-  animation: pop 0.25s ease;
 }
 
-@keyframes pop {
-  from {transform: scale(0.85); opacity: 0;}
-  to {transform: scale(1); opacity: 1;}
+.popup-box h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
 }
 
+.popup-box p {
+  font-size: 15px;
+}
+
+/* FOOTER */
 footer {
   margin-top: 30px;
   padding: 15px;
-  background: #020617;
+  font-size: 13px;
+  opacity: 0.7;
 }
+
+/* MOBILE */
+@media (max-width:480px){
+  header {font-size:22px;}
+  .logo {font-size:45px;}
+  .card h2 {font-size:17px;}
+}
+
 </style>
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
+<!-- 🔥 LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-box">
+    <div class="loader-text">LOADING GAMING MINHAJ...</div>
+    <div class="bar">
+      <div class="progress"></div>
+    </div>
+  </div>
+</div>
 
-<header>💫MINHAJ☆EDITZ💫</header>
+<header>💫 MINHAJ ☆ EDITZ 💫</header>
 
 <div class="logo">🔥🔥🔥</div>
 
-<div class="card fade">
-  <h2>Welcome Gamer 😎</h2>
+<div class="card">
+  <h2>Hi I'm Minhaj ! My TikTok I'd Name -: Minhaj Editz ! Follow Me 😎</h2>
 </div>
 
-<div class="card fade">
-  <h2>👇👇Download Link👇👇</h2>
+<div class="card">
+  <h2>👇👇 All Download Link 👇👇</h2>
 
-  <button onclick="openPopup('Config File','No','https://www.mediafire.com/file/aaif3qlhx2hdret/VIP+VISIT+BOT+GROUP+1.0.0_1.apk/file')">
+  <button onclick="openPopup('FF Profile Visit Bot','No','https://www.mediafire.com/file/aaif3qlhx2hdret/VIP+VISIT+BOT+GROUP+1.0.0_1.apk/file')">
     📥 FF Profile Visit Bot
   </button>
-
 </div>
 
-<div class="card fade">
-  <h2>FOLLOW</h2>
+<div class="card">
+  <h2>FOLLOW MY OTHER MEDIA</h2>
 
   <button onclick="window.open('https://www.facebook.com/share/16jbNHUaaL/')">📘 Facebook</button>
-  <button onclick="window.open('https://youtube.com/@gaming_minhaj_ff?si=qyyAM2Xa-ow4T6qm')">▶️ YouTube</button>
+  <button onclick="window.open('https://youtube.com/@gaming_minhaj_ff')">▶️ YouTube</button>
   <button onclick="window.open('https://t.me/mdminhajafrad1')">📢 Telegram</button>
 </div>
 
@@ -158,7 +217,7 @@ footer {
   <div class="popup-box">
 
     <h2 id="title"></h2>
-    <p>🔐 Password: <b id="pass"></b></p>
+    <p>🔐 Password: <b id="passBox"></b></p>
 
     <button onclick="goDownload()">⬇️ Download Now</button>
     <button onclick="closePopup()" style="background:red;color:white;">Close</button>
@@ -168,88 +227,31 @@ footer {
 
 <script>
 
-/* POPUP */
 let link="";
 
+/* OPEN POPUP */
 function openPopup(name,pass,dl){
-  document.getElementById("popup").style.display="block";
+  document.getElementById("popup").classList.add("show");
   document.getElementById("title").innerText=name;
-  document.getElementById("pass").innerText=pass;
+  document.getElementById("passBox").innerText=pass;
   link=dl;
 }
 
+/* CLOSE POPUP */
 function closePopup(){
-  document.getElementById("popup").style.display="none";
+  document.getElementById("popup").classList.remove("show");
 }
 
+/* DOWNLOAD */
 function goDownload(){
   window.open(link,"_blank");
 }
 
-/* SMOOTH SCROLL (NO LAG FIX) */
-const items=document.querySelectorAll(".fade");
-
-function checkFade(){
-  const trigger=window.innerHeight*0.9;
-
-  items.forEach(i=>{
-    if(i.getBoundingClientRect().top<trigger){
-      i.classList.add("show");
-    }
-  });
-}
-
-window.addEventListener("scroll",()=>{
-  requestAnimationFrame(checkFade);
-});
-
-window.addEventListener("load",checkFade);
-
-/* PARTICLES (OPTIMIZED) */
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-let particles=[];
-
-for(let i=0;i<40;i++){   // optimized (was 80)
-  particles.push({
-    x:Math.random()*canvas.width,
-    y:Math.random()*canvas.height,
-    r:Math.random()*1.5,
-    dx:(Math.random()-0.5)*0.3,
-    dy:(Math.random()-0.5)*0.3
-  });
-}
-
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-
-  ctx.fillStyle="#00f5ff";
-
-  particles.forEach(p=>{
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fill();
-
-    p.x+=p.dx;
-    p.y+=p.dy;
-
-    if(p.x<0||p.x>canvas.width)p.dx*=-1;
-    if(p.y<0||p.y>canvas.height)p.dy*=-1;
-  });
-
-  requestAnimationFrame(animate);
-}
-
-animate();
-
-/* RESIZE FIX */
-window.addEventListener("resize",()=>{
-  canvas.width=window.innerWidth;
-  canvas.height=window.innerHeight;
+/* REMOVE LOADER */
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.getElementById("loader").style.display="none";
+  }, 2000);
 });
 
 </script>
