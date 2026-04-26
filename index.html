@@ -1,242 +1,199 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>GAMING MINHAJ</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<style>
-.fade {
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-transition: opacity 0.4s;
-.fade.show {
-  opacity: 1;
-}
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #020617, #0f172a);
-  color: #e2e8f0;
-  text-align: center;
-}
-
-/* Header */
-header {
-  padding: 20px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 28px;
-  color: #00f5ff;
-  border-bottom: 2px solid #00f5ff;
-  text-shadow: 0 0 10px #00f5ff;
-}
-
-/* Logo */
-.logo {
-  font-size: 50px;
-  margin: 10px 0;
-  color: #00f5ff;
-  text-shadow: 0 0 20px #00f5ff, 0 0 40px #00f5ff;
-}
-
-/* Card */
-.card {
-  background: rgba(0, 245, 255, 0.05);
-  border: 1px solid rgba(0, 245, 255, 0.2);
-  margin: 20px;
-  padding: 20px;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-}
-
-/* Download buttons */
-.download-box button {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(45deg, #00f5ff, #0ea5e9);
-  border: none;
-  color: black;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.download-box button:hover {
-  transform: scale(1.05);
-  background: linear-gradient(45deg, #22d3ee, #38bdf8);
-}
-
-/* Telegram button */
-button {
-  background: linear-gradient(45deg, #00f5ff, #0ea5e9);
-  color: black;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-button:hover {
-  transform: scale(1.08);
-}
-
-/* Footer */
-footer {
-  margin-top: 30px;
-  padding: 15px;
-  background: #020617;
-}
-.card {
-  margin: 25px auto;
-  padding: 25px;
-  max-width: 500px;
-  border-radius: 15px;
-}
-
-.download-box {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 15px;
-}
-
-.download-box button {
-  margin: 5px 0;
-  padding: 12px;
-  width: 100%;
-}
-#particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-</style>
-</head>
-<script>
-  const canvas = document.getElementById("particles");
-  const ctx = canvas.getContext("2d");
+  <meta charset="UTF-8">
+  <title>GAMING MINHAJ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   
-  let particles = [];
-  
-  for (let i = 0; i < 80; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 2,
-      dx: Math.random() - 0.5,
-      dy: Math.random() - 0.5
-    });
-  }
-  
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    ctx.fillStyle = "#00ffe5";
-    
-    particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-      
-      p.x += p.dx;
-      p.y += p.dy;
-      
-      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-    });
-    
-    requestAnimationFrame(animate);
-  }
-  
-  animate();
-</script>
-<canvas id="particles"></canvas>
-<body>
-
-<header>💫MINHAJ☆EDITZ💫</header>
-
-  <div class="logo">🔥🔥🔥</div>
-
-<div class="card">
-  <h2>Welcome Gamer 😎</h2>
-  <p>Download your files easily below 👇</p>
-</div>
-
-<!-- DOWNLOAD SECTION -->
-<div class="card">
-  <h2>⬇️ Download Center</h2>
-  <p>Select your file below 👇</p>
-
-  <div class="download-box">
-    <a href="https://link1.com" target="_blank">
-      <button>📥 Download Config File</button>
-    </a>
-
-    <a href="https://link2.com" target="_blank">
-      <button>📥 Download APK</button>
-    </a>
-
-    <a href="https://link3.com" target="_blank">
-      <button>📥 Download Sensitivity</button>
-    </a>
-
-    <a href="https://link4.com" target="_blank">
-      <button>📥 Download ZIP File</button>
-    </a>
-  </div>
-</div>
-
-‎<div class="card">
-‎  <h2>FOLLOW MY OTHERS MIDIA</h2>
-‎
-‎  <button onclick="window.open('https://www.facebook.com/share/16jbNHUaaL/','_blank')">
-‎    📘 Facebook
-‎  </button>
-‎
-‎  <br><br>
-‎
-‎  <button onclick="window.open('https://youtube.com/@gaming_minhaj_ff?si=qyyAM2Xa-ow4T6qm','_blank')">
-‎    ▶️ YouTube
-‎  </button>
-‎
-‎  <br><br>
-‎
-‎  <button onclick="window.open('https://t.me/mdminhajafrad1','_blank')">
-‎    📢 Telegram
-‎  </button>
-‎
-‎</div>
-
-<footer>
-  © 2026 MINHAJ AFRAD
-</footer>
-<script>
-const items = document.querySelectorAll(".fade");
-
-function checkFade() {
-  const trigger = window.innerHeight * 0.8;
-
-  items.forEach(item => {
-    const top = item.getBoundingClientRect().top;
-
-    if (top < trigger) {
-      item.classList.add("show");   // fade-in
-    } else {
-      item.classList.remove("show"); // fade-out
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color: #e2e8f0;
+      text-align: center;
+      overflow-x: hidden;
     }
-  });
-}
+    
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    
+    header {
+      padding: 20px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      color: #00f5ff;
+      text-shadow: 0 0 10px #00f5ff;
+      border-bottom: 2px solid #00f5ff;
+    }
+    
+    .logo {
+      font-size: 50px;
+      margin: 10px 0;
+      text-shadow: 0 0 20px #00f5ff;
+    }
+    
+    .card {
+      background: rgba(0, 245, 255, 0.05);
+      border: 1px solid rgba(0, 245, 255, 0.2);
+      margin: 20px auto;
+      padding: 25px;
+      max-width: 500px;
+      border-radius: 15px;
+    }
+    
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background: linear-gradient(45deg, #00f5ff, #0ea5e9);
+      border: none;
+      color: black;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.8s ease;
+    }
+    
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
 
-window.addEventListener("scroll", checkFade);
-window.addEventListener("load", checkFade);
-</script>
+<body>
+  
+  <canvas id="particles"></canvas>
+  
+  <header>💫 MINHAJ ☆ EDITZ 💫</header>
+  
+  <div class="logo">🔥🔥🔥</div>
+  
+  <div class="card fade">
+    <h2>Welcome Gamer 😎</h2>
+  </div>
+  
+  <!-- DOWNLOAD -->
+  <div class="card fade">
+    <h2>⬇️ Download Center</h2>
+    
+    <button onclick="openPopup('Config File','1234','https://link1.com')">
+      📥 Download Config
+    </button>
+    
+  </div>
+  
+  <div class="card fade">
+    <h2>FOLLOW ME</h2>
+    
+    <button onclick="window.open('https://facebook.com','_blank')">📘 Facebook</button>
+    <button onclick="window.open('https://youtube.com','_blank')">▶️ YouTube</button>
+    <button onclick="window.open('https://t.me','_blank')">📢 Telegram</button>
+  </div>
+  
+  <footer>© 2026 MINHAJ AFRAD</footer>
+  
+  <!-- POPUP -->
+  <div id="popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);">
+    
+    <div style="background:#111827;width:90%;max-width:350px;margin:120px auto;padding:20px;border-radius:12px;text-align:left;color:white;">
+      
+      <h2 id="title"></h2>
+      
+      <p>🔐 Password: <b id="pass"></b></p>
+      
+      <button onclick="goDownload()">⬇️ Download Now</button>
+      
+      <button onclick="closePopup()" style="background:red;color:white;margin-top:10px;">Close</button>
+      
+    </div>
+    
+  </div>
+  
+  <script>
+    /* POPUP SYSTEM */
+    let link = "";
+    
+    function openPopup(name, pass, dl) {
+      document.getElementById("popup").style.display = "block";
+      document.getElementById("title").innerText = name;
+      document.getElementById("pass").innerText = pass;
+      link = dl;
+    }
+    
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+    
+    function goDownload() {
+      window.open(link, "_blank");
+    }
+    
+    /* FADE */
+    const items = document.querySelectorAll(".fade");
+    
+    window.addEventListener("scroll", () => {
+      items.forEach(i => {
+        if (i.getBoundingClientRect().top < window.innerHeight * 0.8) {
+          i.classList.add("show");
+        }
+      });
+    });
+    
+    /* PARTICLES */
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    let particles = [];
+    
+    for (let i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2,
+        dx: Math.random() - 0.5,
+        dy: Math.random() - 0.5
+      });
+    }
+    
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.fillStyle = "#00f5ff";
+      
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        
+        p.x += p.dx;
+        p.y += p.dy;
+      });
+      
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+  </script>
+  
 </body>
-</html> 
+
+</html>
