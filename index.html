@@ -9,11 +9,7 @@
 
 <style>
 
-/* GLOBAL */
-html {
-  font-size: 16px;
-}
-
+/* ================= GLOBAL AUTO TEXT SYSTEM ================= */
 body {
   margin: 0;
   padding: 0;
@@ -21,10 +17,15 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #e2e8f0;
   text-align: center;
-  font-size: clamp(14px, 2vw, 18px);
+  font-size: clamp(14px, 1.8vw, 18px);
 }
 
-/* LOADER */
+/* HEADINGS AUTO SCALE */
+h1 { font-size: clamp(20px, 5vw, 34px); }
+h2 { font-size: clamp(16px, 3.5vw, 24px); }
+h3 { font-size: clamp(14px, 3vw, 20px); }
+
+/* ================= LOADER ================= */
 #loader{
   position: fixed;
   inset: 0;
@@ -62,7 +63,7 @@ body {
 
 @keyframes load{from{width:0%}to{width:100%}}
 
-/* HEADER */
+/* ================= HEADER ================= */
 header{
   padding:20px;
   font-family:'Orbitron',sans-serif;
@@ -72,13 +73,13 @@ header{
   border-bottom:2px solid #00f5ff;
 }
 
-/* LOGO */
+/* ================= LOGO ================= */
 .logo{
-  font-size: clamp(35px, 8vw, 55px);
+  font-size: clamp(35px, 9vw, 55px);
   margin:15px 0;
 }
 
-/* CARD */
+/* ================= CARD ================= */
 .card{
   background:rgba(0,245,255,0.05);
   border:1px solid rgba(0,245,255,0.2);
@@ -93,7 +94,7 @@ header{
   line-height: 1.4;
 }
 
-/* BUTTON */
+/* ================= BUTTON ================= */
 button{
   width:100%;
   padding:12px;
@@ -111,7 +112,7 @@ button{
 
 button:active{transform:scale(0.96);}
 
-/* POPUP */
+/* ================= POPUP ================= */
 .popup{
   display:none;
   position:fixed;
@@ -134,10 +135,10 @@ button:active{transform:scale(0.96);}
 
 .popup-box h2{
   font-family:'Orbitron',sans-serif;
-  font-size: clamp(16px, 3vw, 22px);
+  font-size: clamp(16px, 3.2vw, 22px);
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
   margin-top:30px;
   padding:15px;
