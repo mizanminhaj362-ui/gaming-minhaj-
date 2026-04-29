@@ -9,23 +9,17 @@
 
 <style>
 
-/* ================= GLOBAL AUTO TEXT SYSTEM ================= */
-body {
+/* 🌌 GLOBAL */
+html, body {
   margin: 0;
   padding: 0;
   background: #020617;
   font-family: 'Poppins', sans-serif;
   color: #e2e8f0;
   text-align: center;
-  font-size: clamp(14px, 1.8vw, 18px);
 }
 
-/* HEADINGS AUTO SCALE */
-h1 { font-size: clamp(20px, 5vw, 34px); }
-h2 { font-size: clamp(16px, 3.5vw, 24px); }
-h3 { font-size: clamp(14px, 3vw, 20px); }
-
-/* ================= LOADER ================= */
+/* LOADER */
 #loader{
   position: fixed;
   inset: 0;
@@ -41,7 +35,7 @@ h3 { font-size: clamp(14px, 3vw, 20px); }
 .loader-text{
   font-family:'Orbitron',sans-serif;
   color:#00f5ff;
-  font-size: clamp(12px, 2.5vw, 14px);
+  font-size:14px;
   margin-bottom:15px;
   letter-spacing:2px;
 }
@@ -61,25 +55,28 @@ h3 { font-size: clamp(14px, 3vw, 20px); }
   animation:load 2s ease forwards;
 }
 
-@keyframes load{from{width:0%}to{width:100%}}
+@keyframes load{
+  from{width:0%}
+  to{width:100%}
+}
 
-/* ================= HEADER ================= */
+/* HEADER */
 header{
   padding:20px;
   font-family:'Orbitron',sans-serif;
-  font-size: clamp(18px, 4vw, 28px);
+  font-size:28px;
   color:#00f5ff;
   text-shadow:0 0 15px #00f5ff;
   border-bottom:2px solid #00f5ff;
 }
 
-/* ================= LOGO ================= */
+/* LOGO */
 .logo{
-  font-size: clamp(35px, 9vw, 55px);
+  font-size:55px;
   margin:15px 0;
 }
 
-/* ================= CARD ================= */
+/* CARD */
 .card{
   background:rgba(0,245,255,0.05);
   border:1px solid rgba(0,245,255,0.2);
@@ -89,30 +86,121 @@ header{
   border-radius:15px;
 }
 
-.card h2{
-  font-size: clamp(14px, 2.8vw, 20px);
-  line-height: 1.4;
+/* FADE */
+header, .card, .logo{
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-/* ================= BUTTON ================= */
+.show-ui header,
+.show-ui .logo,
+.show-ui .card{
+  animation: fadeUp 0.5s ease forwards;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔘 BUTTON CORE FIX (GLITCH FIX HERE) */
 button{
   width:100%;
   padding:12px;
   margin-top:10px;
-  background:linear-gradient(45deg,#00f5ff,#0ea5e9);
   border:none;
-  color:black;
   border-radius:8px;
   font-weight:600;
-  font-size: clamp(12px, 2.5vw, 15px);
+  font-size:15px;
   cursor:pointer;
-  transition:0.15s;
-  -webkit-tap-highlight-color:transparent;
+  color:white;
+
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  transform-style: preserve-3d;
+
+  opacity:0;
+  transform: translateY(15px);
 }
 
-button:active{transform:scale(0.96);}
+/* BUTTON ANIMATION */
+.show-ui button{
+  animation: fadeBtn 0.35s ease forwards;
+}
 
-/* ================= POPUP ================= */
+@keyframes fadeBtn{
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* TOUCH */
+button:active{
+  transform: scale(0.95);
+  filter: brightness(1.2);
+}
+
+/* 🎯 DEFAULT GLOW (CLEAN FIXED) */
+button:not(.fb):not(.yt):not(.tg):not(.close-btn):not(.setup-btn){
+  background:linear-gradient(45deg,#00f5ff,#0ea5e9);
+  color:black;
+
+  box-shadow:
+    0 0 12px rgba(0,245,255,0.55),
+    0 0 24px rgba(0,245,255,0.40),
+    0 0 36px rgba(0,245,255,0.25);
+}
+
+/* 🔵 FACEBOOK */
+.fb{
+  background:#1877F2;
+  box-shadow:
+    0 0 12px rgba(24,119,242,0.60),
+    0 0 24px rgba(24,119,242,0.40),
+    0 0 36px rgba(24,119,242,0.25);
+}
+
+/* 🔴 YOUTUBE (FIXED NO OVERFLOW BUG) */
+.yt{
+  background:#FF0000;
+  box-shadow:
+    0 0 10px rgba(255,0,0,0.85),
+    0 0 25px rgba(255,0,0,0.60),
+    0 0 45px rgba(255,0,0,0.35);
+}
+
+/* 🔵 TELEGRAM */
+.tg{
+  background:#0088cc;
+  box-shadow:
+    0 0 12px rgba(0,136,204,0.60),
+    0 0 24px rgba(0,136,204,0.40),
+    0 0 36px rgba(0,136,204,0.25);
+}
+
+/* 🟣 SETUP */
+.setup-btn{
+  background:linear-gradient(45deg,#a855f7,#6366f1);
+  box-shadow:
+    0 0 12px rgba(168,85,247,0.60),
+    0 0 24px rgba(99,102,241,0.40),
+    0 0 36px rgba(99,102,241,0.25);
+}
+
+/* 🔴 CLOSE (FIXED STABLE GLOW) */
+.close-btn{
+  background:red;
+  box-shadow:
+    0 0 10px rgba(255,0,0,0.85),
+    0 0 25px rgba(255,0,0,0.60),
+    0 0 45px rgba(255,0,0,0.35);
+}
+
+/* POPUP */
 .popup{
   display:none;
   position:fixed;
@@ -120,6 +208,7 @@ button:active{transform:scale(0.96);}
   background:rgba(0,0,0,0.8);
   justify-content:center;
   align-items:center;
+  z-index: 1000;
 }
 
 .popup.show{display:flex;}
@@ -130,19 +219,13 @@ button:active{transform:scale(0.96);}
   max-width:350px;
   padding:25px;
   border-radius:12px;
-  text-align:center;
 }
 
-.popup-box h2{
-  font-family:'Orbitron',sans-serif;
-  font-size: clamp(16px, 3.2vw, 22px);
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
   margin-top:30px;
   padding:15px;
-  font-size: clamp(11px, 2vw, 13px);
+  font-size:13px;
   opacity:0.7;
 }
 
@@ -164,7 +247,7 @@ footer{
 <div class="logo">🔥🔥🔥</div>
 
 <div class="card">
-  <h2>Hi I'm Minhaj ! My TikTok I'd Name -: Minhaj Editz ! Follow Me 😎</h2>
+  <h2>Hi I'm Minhaj Afrad ! Follow Me 😎</h2>
 </div>
 
 <div class="card">
@@ -176,11 +259,12 @@ footer{
 </div>
 
 <div class="card">
-  <h2>FOLLOW MY OTHER MEDIA</h2>
+  <h2>📢 FOLLOW MY OTHER MEDIA</h2>
 
-  <button onclick="window.open('https://www.facebook.com/share/16jbNHUaaL/')">📘 Facebook</button>
-  <button onclick="window.open('https://youtube.com/@gaming_minhaj_ff')">▶️ YouTube</button>
-  <button onclick="window.open('https://t.me/mdminhajafrad1')">📢 Telegram</button>
+  <button class="fb" onclick="window.open('https://www.facebook.com/share/16jbNHUaaL/')">Facebook</button>
+  <button class="yt" onclick="window.open('https://youtube.com/@gaming_minhaj_ff')">YouTube</button>
+  <button class="tg" onclick="window.open('https://t.me/mdminhajafrad1')">Telegram</button>
+
 </div>
 
 <footer>© 2026 MINHAJ AFRAD</footer>
@@ -194,13 +278,11 @@ footer{
 
     <button onclick="goDownload()">⬇️ Download Now</button>
 
-    <button onclick="window.open('https://gamingminhajsetup.netlify.app/','_blank')">
+    <button class="setup-btn" onclick="window.open('https://gamingminhajsetup.netlify.app/','_blank')">
       🎬 Setup Link
     </button>
 
-    <button onclick="closePopup()" style="background:red;color:white;">
-      Close
-    </button>
+    <button class="close-btn" onclick="closePopup()">Close</button>
 
   </div>
 </div>
@@ -224,9 +306,11 @@ function goDownload(){
   window.open(link,"_blank");
 }
 
+/* LOADER */
 window.addEventListener("load",()=>{
   setTimeout(()=>{
     document.getElementById("loader").style.display="none";
+    document.body.classList.add("show-ui");
   },2000);
 });
 
