@@ -10,17 +10,19 @@
 <style>
 
 /* 🌌 GLOBAL */
-html, body {
+html { font-size: clamp(14px, 2.5vw, 18px); }
+
+body {
   margin: 0;
   padding: 0;
   background: #020617;
   font-family: 'Poppins', sans-serif;
   color: #e2e8f0;
   text-align: center;
-  font-size: clamp(14px, 2vw, 18px);
+  line-height: 1.5;
 }
 
-/* 🎮 GLOW CONTROL SYSTEM */
+/* 🎮 GLOW */
 :root{
   --glow: 22px;
   --glow-spread: 4px;
@@ -42,7 +44,7 @@ html, body {
 .loader-text{
   font-family:'Orbitron',sans-serif;
   color:#00f5ff;
-  font-size:14px;
+  font-size: clamp(12px,3vw,16px);
   margin-bottom:15px;
   letter-spacing:2px;
 }
@@ -71,7 +73,7 @@ html, body {
 header{
   padding:20px;
   font-family:'Orbitron',sans-serif;
-  font-size: clamp(20px, 4vw, 32px);
+  font-size: clamp(20px, 5vw, 32px);
   color:#00f5ff;
   text-shadow:0 0 15px #00f5ff;
   border-bottom:2px solid #00f5ff;
@@ -82,6 +84,10 @@ header{
   font-size: clamp(40px, 10vw, 70px);
   margin:15px 0;
 }
+
+/* TEXT */
+h2{ font-size: clamp(16px, 4vw, 24px); }
+p{ font-size: clamp(13px, 3vw, 16px); }
 
 /* CARD */
 .card{
@@ -112,31 +118,26 @@ header, .card, .logo{
   }
 }
 
-/* 🔘 BUTTON BASE */
+/* BUTTON */
 button{
   width:100%;
   padding: clamp(10px, 2.5vw, 14px);
   margin-top:10px;
-
   border:none;
   border-radius:10px;
   font-weight:600;
-
-  font-size: clamp(13px, 2.5vw, 16px);
+  font-size: clamp(13px, 3vw, 16px);
   cursor:pointer;
   color:white;
-
   position: relative;
   overflow:hidden;
-
   opacity:0;
   transform: translateY(15px);
   transition: all 0.25s ease;
 }
 
-/* ANIMATION */
 .show-ui button{
-  animation: fadeBtn 0.35s ease forwards;
+  animation: fadeBtn 0.4s ease forwards;
 }
 
 @keyframes fadeBtn{
@@ -146,54 +147,46 @@ button{
   }
 }
 
-/* CLICK */
 button:active{
   transform: scale(0.95);
-  filter: brightness(1.2);
 }
 
-/* 🌟 DEFAULT BUTTON */
+/* DEFAULT */
 button:not(.fb):not(.yt):not(.tg):not(.close-btn):not(.setup-btn){
   background:linear-gradient(45deg,#00f5ff,#0ea5e9);
   color:black;
   box-shadow:0 0 var(--glow) var(--glow-spread) rgba(0,245,255,0.6);
 }
 
-/* FACEBOOK */
-.fb{
-  background:#1877F2;
-  box-shadow:0 0 var(--glow) var(--glow-spread) rgba(24,119,242,0.6);
-}
+/* SOCIAL */
+.fb{background:#1877F2;box-shadow:0 0 25px 6px rgba(24,119,242,0.6);}
+.yt{background:#FF0000;box-shadow:0 0 25px 7px rgba(255,0,0,0.6);}
+.tg{background:#0088cc;box-shadow:0 0 25px 6px rgba(0,136,204,0.6);}
 
-/* YOUTUBE */
-.yt{
-  background:#FF0000;
-  box-shadow:0 0 var(--glow) var(--glow-spread) rgba(255,0,0,0.6);
-}
-
-/* TELEGRAM */
-.tg{
-  background:#0088cc;
-  box-shadow:0 0 var(--glow) var(--glow-spread) rgba(0,136,204,0.6);
-}
-
-/* SETUP */
+/* SETUP + CLOSE FIXED GLOW */
 .setup-btn{
   background:linear-gradient(45deg,#a855f7,#6366f1);
-  box-shadow:0 0 var(--glow) var(--glow-spread) rgba(99,102,241,0.6);
+  box-shadow:0 0 22px 4px rgba(168,85,247,0.7);
 }
 
-/* CLOSE */
 .close-btn{
   background:red;
-  box-shadow:0 0 var(--glow) var(--glow-spread) rgba(255,0,0,0.6);
+  box-shadow:0 0 22px 4px rgba(255,0,0,0.7);
 }
 
-/* 🌈 HOVER GLOW */
+/* HOVER (NO OVERWRITE) */
 button:hover{
   transform:scale(1.05);
   filter:brightness(1.2);
-  box-shadow:0 0 40px 10px rgba(0,245,255,0.8);
+}
+
+/* EXTRA GLOW */
+.setup-btn:hover{
+  box-shadow:0 0 35px 8px rgba(168,85,247,0.9);
+}
+
+.close-btn:hover{
+  box-shadow:0 0 35px 8px rgba(255,0,0,0.9);
 }
 
 /* POPUP */
@@ -217,10 +210,14 @@ button:hover{
   border-radius:12px;
 }
 
+.popup-box h2{ font-size: clamp(16px, 4vw, 22px); }
+.popup-box p{ font-size: clamp(13px, 3vw, 15px); }
+
+/* FOOTER */
 footer{
   margin-top:30px;
   padding:15px;
-  font-size:13px;
+  font-size: clamp(11px,2.5vw,14px);
   opacity:0.7;
 }
 
@@ -251,7 +248,7 @@ footer{
     📥 FF Like+Visitor Bot
   </button>
 
-  </div>
+</div>
 
 <div class="card">
   <h2>📢 FOLLOW MY OTHERS MEDIA</h2>
@@ -271,7 +268,7 @@ footer{
     <h2 id="title"></h2>
     <p>🔐 Password: <b id="passBox"></b></p>
 
-      <button onclick="goDownload()">⬇️ DOWNLOAD</button>
+    <button onclick="goDownload()">⬇️ DOWNLOAD</button>
     <button class="setup-btn" onclick="window.open('https://gamingminhajsetup.netlify.app/')">🎬 SET-UP</button>
     <button class="close-btn" onclick="closePopup()">CLOSE</button>
 
