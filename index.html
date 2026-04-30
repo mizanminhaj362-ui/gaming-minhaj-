@@ -20,6 +20,12 @@ html, body {
   font-size: clamp(14px, 2vw, 18px);
 }
 
+/* 🎮 GLOW CONTROL SYSTEM */
+:root{
+  --glow: 22px;
+  --glow-spread: 4px;
+}
+
 /* LOADER */
 #loader{
   position: fixed;
@@ -87,11 +93,6 @@ header{
   border-radius:15px;
 }
 
-/* CARD TEXT */
-.card h2{
-  font-size: clamp(16px, 3.5vw, 22px);
-}
-
 /* FADE */
 header, .card, .logo{
   opacity: 0;
@@ -111,10 +112,9 @@ header, .card, .logo{
   }
 }
 
-/* 🔘 BUTTON */
+/* 🔘 BUTTON BASE */
 button{
   width:100%;
-  max-width:100%;
   padding: clamp(10px, 2.5vw, 14px);
   margin-top:10px;
 
@@ -127,14 +127,14 @@ button{
   color:white;
 
   position: relative;
-  z-index: 1;
-  isolation: isolate;
+  overflow:hidden;
 
   opacity:0;
   transform: translateY(15px);
+  transition: all 0.25s ease;
 }
 
-/* BUTTON ANIMATION */
+/* ANIMATION */
 .show-ui button{
   animation: fadeBtn 0.35s ease forwards;
 }
@@ -146,47 +146,54 @@ button{
   }
 }
 
-/* TOUCH */
+/* CLICK */
 button:active{
   transform: scale(0.95);
   filter: brightness(1.2);
 }
 
-/* DEFAULT BUTTON */
+/* 🌟 DEFAULT BUTTON */
 button:not(.fb):not(.yt):not(.tg):not(.close-btn):not(.setup-btn){
   background:linear-gradient(45deg,#00f5ff,#0ea5e9);
   color:black;
-  box-shadow:0 0 20px rgba(0,245,255,0.4);
+  box-shadow:0 0 var(--glow) var(--glow-spread) rgba(0,245,255,0.6);
 }
 
 /* FACEBOOK */
 .fb{
   background:#1877F2;
-  box-shadow:0 0 20px rgba(24,119,242,0.5);
+  box-shadow:0 0 var(--glow) var(--glow-spread) rgba(24,119,242,0.6);
 }
 
 /* YOUTUBE */
 .yt{
   background:#FF0000;
-  box-shadow:0 0 20px rgba(255,0,0,0.5);
+  box-shadow:0 0 var(--glow) var(--glow-spread) rgba(255,0,0,0.6);
 }
 
 /* TELEGRAM */
 .tg{
   background:#0088cc;
-  box-shadow:0 0 20px rgba(0,136,204,0.5);
+  box-shadow:0 0 var(--glow) var(--glow-spread) rgba(0,136,204,0.6);
 }
 
 /* SETUP */
 .setup-btn{
   background:linear-gradient(45deg,#a855f7,#6366f1);
-  box-shadow:0 0 20px rgba(99,102,241,0.5);
+  box-shadow:0 0 var(--glow) var(--glow-spread) rgba(99,102,241,0.6);
 }
 
 /* CLOSE */
 .close-btn{
   background:red;
-  box-shadow:0 0 20px rgba(255,0,0,0.5);
+  box-shadow:0 0 var(--glow) var(--glow-spread) rgba(255,0,0,0.6);
+}
+
+/* 🌈 HOVER GLOW */
+button:hover{
+  transform:scale(1.05);
+  filter:brightness(1.2);
+  box-shadow:0 0 40px 10px rgba(0,245,255,0.8);
 }
 
 /* POPUP */
@@ -197,7 +204,7 @@ button:not(.fb):not(.yt):not(.tg):not(.close-btn):not(.setup-btn){
   background:rgba(0,0,0,0.8);
   justify-content:center;
   align-items:center;
-  z-index: 1000;
+  z-index:1000;
 }
 
 .popup.show{display:flex;}
@@ -210,7 +217,6 @@ button:not(.fb):not(.yt):not(.tg):not(.close-btn):not(.setup-btn){
   border-radius:12px;
 }
 
-/* FOOTER */
 footer{
   margin-top:30px;
   padding:15px;
@@ -223,7 +229,6 @@ footer{
 
 <body>
 
-<!-- LOADER -->
 <div id="loader">
   <div class="loader-box">
     <div class="loader-text">LOADING GAMING MINHAJ...</div>
@@ -240,19 +245,19 @@ footer{
 </div>
 
 <div class="card">
-  <h2>👇👇 All Download Link 👇👇</h2>
+  <h2>👇👇 Download Link 👇👇</h2>
 
-  <button onclick="openPopup('🔥 FF Like+Visitor Bot','No','https://www.mediafire.com/file/aaif3qlhx2hdret/VIP+VISIT+BOT+GROUP+1.0.0_1.apk/file')">
+  <button onclick="openPopup('FF Like+Visitor Bot','No','https://www.mediafire.com/file/aaif3qlhx2hdret/file.apk')">
     📥 FF Like+Visitor Bot
   </button>
 </div>
 
 <div class="card">
-  <h2>📢 FOLLOW MY OTHER MEDIA</h2>
+  <h2>📢 FOLLOW MY OTHERS MEDIA</h2>
 
-  <button class="fb" onclick="window.open('https://www.facebook.com/share/16jbNHUaaL/')">Facebook</button>
-  <button class="yt" onclick="window.open('https://youtube.com/@gaming_minhaj_ff')">YouTube</button>
-  <button class="tg" onclick="window.open('https://t.me/mdminhajafrad1')">Telegram</button>
+  <button class="fb" onclick="window.open('https://facebook.com')">Facebook</button>
+  <button class="yt" onclick="window.open('https://youtube.com')">YouTube</button>
+  <button class="tg" onclick="window.open('https://t.me')">Telegram</button>
 
 </div>
 
@@ -265,13 +270,9 @@ footer{
     <h2 id="title"></h2>
     <p>🔐 Password: <b id="passBox"></b></p>
 
-    <button onclick="goDownload()">⬇️ Download Now</button>
-
-    <button class="setup-btn" onclick="window.open('https://gamingminhajsetup.netlify.app/','_blank')">
-      🎬 Setup Link
-    </button>
-
-    <button class="close-btn" onclick="closePopup()">Close</button>
+      <button onclick="goDownload()">⬇️ DOWNLOAD</button>
+    <button class="setup-btn" onclick="window.open('https://google.com')">🎬 SET-UP</button>
+    <button class="close-btn" onclick="closePopup()">❎ CLOSE</button>
 
   </div>
 </div>
