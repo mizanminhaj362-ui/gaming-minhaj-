@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>GAMING MINHAJ</title>
+<title>GAMING MINHAJ APP</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -10,7 +10,9 @@
 <style>
 
 /* 🌌 GLOBAL */
-html { font-size: clamp(14px, 2.5vw, 18px); }
+html {
+  font-size: clamp(14px, 2.5vw, 18px);
+}
 
 body {
   margin: 0;
@@ -20,12 +22,17 @@ body {
   color: #e2e8f0;
   text-align: center;
   line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
 }
 
-/* 🎮 GLOW */
-:root{
-  --glow: 22px;
-  --glow-spread: 4px;
+h1 { font-size: clamp(22px, 5vw, 36px); }
+h2 { font-size: clamp(18px, 4.5vw, 26px); }
+p  { font-size: clamp(14px, 3.5vw, 16px); }
+
+button{
+  font-size: clamp(13px, 3.5vw, 16px);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 /* LOADER */
@@ -44,7 +51,7 @@ body {
 .loader-text{
   font-family:'Orbitron',sans-serif;
   color:#00f5ff;
-  font-size: clamp(12px,3vw,16px);
+  font-size: clamp(12px,3vw,14px);
   margin-bottom:15px;
   letter-spacing:2px;
 }
@@ -64,16 +71,13 @@ body {
   animation:load 2s ease forwards;
 }
 
-@keyframes load{
-  from{width:0%}
-  to{width:100%}
-}
+@keyframes load{ to{width:100%} }
 
 /* HEADER */
 header{
   padding:20px;
   font-family:'Orbitron',sans-serif;
-  font-size: clamp(20px, 5vw, 32px);
+  font-size: clamp(20px, 6vw, 34px);
   color:#00f5ff;
   text-shadow:0 0 15px #00f5ff;
   border-bottom:2px solid #00f5ff;
@@ -81,13 +85,9 @@ header{
 
 /* LOGO */
 .logo{
-  font-size: clamp(40px, 10vw, 70px);
+  font-size: clamp(35px, 12vw, 80px);
   margin:15px 0;
 }
-
-/* TEXT */
-h2{ font-size: clamp(16px, 4vw, 24px); }
-p{ font-size: clamp(13px, 3vw, 16px); }
 
 /* CARD */
 .card{
@@ -99,102 +99,66 @@ p{ font-size: clamp(13px, 3vw, 16px); }
   border-radius:15px;
 }
 
-/* FADE */
+.card h2{
+  font-size: clamp(16px, 4.5vw, 22px);
+}
+
+/* FADE UI */
 header, .card, .logo{
-  opacity: 0;
-  transform: translateY(20px);
+  opacity:0;
+  transform:translateY(20px);
 }
 
 .show-ui header,
 .show-ui .logo,
 .show-ui .card{
-  animation: fadeUp 0.5s ease forwards;
+  animation:fadeUp 0.5s ease forwards;
 }
 
 @keyframes fadeUp{
-  to{
-    opacity:1;
-    transform: translateY(0);
-  }
+  to{opacity:1; transform:translateY(0);}
 }
 
 /* BUTTON */
 button{
   width:100%;
-  padding: clamp(10px, 2.5vw, 14px);
+  padding:12px;
   margin-top:10px;
   border:none;
   border-radius:10px;
   font-weight:600;
-  font-size: clamp(13px, 3vw, 16px);
   cursor:pointer;
+  transition:0.25s;
   color:white;
-  position: relative;
-  overflow:hidden;
-  opacity:0;
-  transform: translateY(15px);
-  transition: all 0.25s ease;
 }
 
-.show-ui button{
-  animation: fadeBtn 0.4s ease forwards;
-}
-
-@keyframes fadeBtn{
-  to{
-    opacity:1;
-    transform: translateY(0);
-  }
-}
-
-button:active{
-  transform: scale(0.95);
-}
-
-/* DEFAULT */
-button:not(.fb):not(.yt):not(.tg):not(.close-btn):not(.setup-btn){
-  background:linear-gradient(45deg,#00f5ff,#0ea5e9);
-  color:black;
-  box-shadow:0 0 var(--glow) var(--glow-spread) rgba(0,245,255,0.6);
-}
-
-/* SOCIAL */
-.fb{background:#1877F2;box-shadow:0 0 25px 6px rgba(24,119,242,0.6);}
-.yt{background:#FF0000;box-shadow:0 0 25px 7px rgba(255,0,0,0.6);}
-.tg{background:#0088cc;box-shadow:0 0 25px 6px rgba(0,136,204,0.6);}
-
-/* SETUP + CLOSE FIXED GLOW */
-.setup-btn{
-  background:linear-gradient(45deg,#a855f7,#6366f1);
-  box-shadow:0 0 22px 4px rgba(168,85,247,0.7);
-}
-
-.close-btn{
-  background:red;
-  box-shadow:0 0 22px 4px rgba(255,0,0,0.7);
-}
-
-/* HOVER (NO OVERWRITE) */
 button:hover{
   transform:scale(1.05);
   filter:brightness(1.2);
 }
 
-/* EXTRA GLOW */
-.setup-btn:hover{
-  box-shadow:0 0 35px 8px rgba(168,85,247,0.9);
+button:active{
+  transform:scale(0.97);
 }
 
-.close-btn:hover{
-  box-shadow:0 0 35px 8px rgba(255,0,0,0.9);
+/* MAIN BTN */
+.main-btn{
+  background:linear-gradient(45deg,#00f5ff,#0ea5e9);
+  color:black;
+  box-shadow:0 0 20px rgba(0,245,255,0.6);
 }
+
+/* SOCIAL */
+.fb{background:#1877F2; box-shadow:0 0 25px rgba(24,119,242,0.7);}
+.yt{background:#FF0000; box-shadow:0 0 25px rgba(255,0,0,0.7);}
+.tg{background:#0088cc; box-shadow:0 0 25px rgba(0,136,204,0.7);}
 
 /* POPUP */
 .popup{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.8);
+  background:rgba(0,0,0,0.85);
   justify-content:center;
   align-items:center;
   z-index:1000;
@@ -210,14 +174,49 @@ button:hover{
   border-radius:12px;
 }
 
-.popup-box h2{ font-size: clamp(16px, 4vw, 22px); }
-.popup-box p{ font-size: clamp(13px, 3vw, 15px); }
+/* POPUP BUTTON ANIMATION */
+.popup-box button{
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.popup.show .popup-box button{
+  animation: popUp 0.5s ease forwards;
+}
+
+@keyframes popUp{
+  0%{opacity:0; transform:translateY(40px);}
+  100%{opacity:1; transform:translateY(0);}
+}
+
+/* STAGGER */
+.popup.show .popup-box button:nth-of-type(1){animation-delay:0.1s;}
+.popup.show .popup-box button:nth-of-type(2){animation-delay:0.25s;}
+.popup.show .popup-box button:nth-of-type(3){animation-delay:0.4s;}
+.popup.show .popup-box button:nth-of-type(4){animation-delay:0.55s;}
+
+/* POPUP BTN COLORS */
+.popup-box button:not(.setup-btn):not(.close-btn){
+  background:linear-gradient(45deg,#00f5ff,#0ea5e9);
+  color:black;
+  box-shadow:0 0 18px rgba(0,245,255,0.9);
+}
+
+.setup-btn{
+  background:linear-gradient(45deg,#a855f7,#6366f1);
+  box-shadow:0 0 18px rgba(168,85,247,0.9);
+}
+
+.close-btn{
+  background:#ff0000;
+  box-shadow:0 0 18px rgba(255,0,0,0.9);
+}
 
 /* FOOTER */
 footer{
   margin-top:30px;
   padding:15px;
-  font-size: clamp(11px,2.5vw,14px);
+  font-size: clamp(12px, 3vw, 14px);
   opacity:0.7;
 }
 
@@ -226,6 +225,7 @@ footer{
 
 <body>
 
+<!-- LOADER -->
 <div id="loader">
   <div class="loader-box">
     <div class="loader-text">LOADING GAMING MINHAJ...</div>
@@ -233,7 +233,7 @@ footer{
   </div>
 </div>
 
-<header>💫 MINHAJ ☆ EDITZ 💫</header>
+<header>💫 GAMING ☆ MINHAJ 💫</header>
 
 <div class="logo">🔥🔥🔥</div>
 
@@ -242,12 +242,10 @@ footer{
 </div>
 
 <div class="card">
-  <h2>👇👇 Download Link 👇👇</h2>
+  <h2>👇👇 All Download Link 👇👇</h2>
 
-  <button onclick="openPopup('FF Like+Visitor Bot','No','https://www.mediafire.com/file/aaif3qlhx2hdret/file.apk')">
-    📥 FF Like+Visitor Bot
-  </button>
-
+  <button class="main-btn" onclick="openPopup('popup1')">📥 DOWNLOAD GIFT SEND PROXY</button>
+  <button class="main-btn" onclick="openPopup('popup2')">📥 DOWNLOAD LIKE+VISITOR BOT</button>
 </div>
 
 <div class="card">
@@ -256,52 +254,50 @@ footer{
   <button class="fb" onclick="window.open('https://www.facebook.com/share/16jbNHUaaL/')">Facebook</button>
   <button class="yt" onclick="window.open('https://youtube.com/@gaming_minhaj_ff?si=qyyAM2Xa-ow4T6qm')">YouTube</button>
   <button class="tg" onclick="window.open('https://t.me/mdminhajafrad1')">Telegram</button>
-
 </div>
 
 <footer>© 2026 MINHAJ AFRAD</footer>
 
-<!-- POPUP -->
-<div id="popup" class="popup">
+<!-- POPUP 1 -->
+<div id="popup1" class="popup">
   <div class="popup-box">
+    <h2>GIFT SEND PROXY</h2>
+    <p>🔐 Password: No</p>
 
-    <h2 id="title"></h2>
-    <p>🔐 Password: <b id="passBox"></b></p>
-
-    <button onclick="goDownload()">⬇️ DOWNLOAD</button>
+    <button onclick="window.open('https://www.mediafire.com/file/o7wb9sjfv9av195/MR-TOM-GIFT-SEND-PROXY.apk/file')">⬇️ Download App</button>
+    <button onclick="window.open('https://www.mediafire.com/file/5d45xx0eyd76ke9/eEagle_VPN_2.10.5_110.apk/file')">⬇️ Download Vpn</button>
     <button class="setup-btn" onclick="window.open('https://gamingminhajsetup.netlify.app/')">🎬 SET-UP</button>
-    <button class="close-btn" onclick="closePopup()">CLOSE</button>
+    <button class="close-btn" onclick="closePopup('popup1')">CLOSE</button>
+  </div>
+</div>
 
+<!-- POPUP 2 -->
+<div id="popup2" class="popup">
+  <div class="popup-box">
+    <h2>Like+Visitor Bot</h2>
+    <p>🔐 Password: No</p>
+
+    <button onclick="window.open('https://www.mediafire.com/file/aaif3qlhx2hdret/VIP+VISIT+BOT+GROUP+1.0.0_1.apk/file')">⬇️ Download App</button>
+    <button class="setup-btn" onclick="window.open('https://gamingminhajsetup.netlify.app/')">🎬 SET-UP</button>
+    <button class="close-btn" onclick="closePopup('popup2')">CLOSE</button>
   </div>
 </div>
 
 <script>
-
-let link="";
-
-function openPopup(name,pass,dl){
-  document.getElementById("popup").classList.add("show");
-  document.getElementById("title").innerText=name;
-  document.getElementById("passBox").innerText=pass;
-  link=dl;
+function openPopup(id){
+  document.getElementById(id).classList.add("show");
 }
 
-function closePopup(){
-  document.getElementById("popup").classList.remove("show");
+function closePopup(id){
+  document.getElementById(id).classList.remove("show");
 }
 
-function goDownload(){
-  window.open(link,"_blank");
-}
-
-/* LOADER */
 window.addEventListener("load",()=>{
   setTimeout(()=>{
     document.getElementById("loader").style.display="none";
     document.body.classList.add("show-ui");
   },2000);
 });
-
 </script>
 
 </body>
